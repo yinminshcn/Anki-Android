@@ -12,6 +12,9 @@ apply plugin: 'app.brant.amazonappstorepublisher'
 repositories {
     google()
     jcenter()
+    maven {
+        url 'https://jitpack.io'
+    }
 }
 def homePath = System.properties['user.home']
 android {
@@ -194,6 +197,8 @@ tasks.withType(JavaCompile) {
 apply from: "./robolectricDownloader.gradle"
 apply from: "./jacoco.gradle"
 apply from: "../lint.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     // Can possibly remove if upstream PR merges https://github.com/JakeWharton/timber/pull/398
@@ -229,6 +234,11 @@ dependencies {
     implementation 'org.apache.commons:commons-compress:1.12' // #6419 - handle >2GB apkg files
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.webkit:webkit:1.4.0'
+
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "io.reactivex.rxjava3:rxjava:3.0.6"
 
 
     // May need a resolution strategy for support libs to our versions

@@ -105,14 +105,14 @@ public class Media {
      * Group 3 = "fname" <br>
      * Group 4 = Backreference to "str" (i.e., same type of quote character)
      */
-    private static final Pattern fImgRegExpQ = Pattern.compile("(?i)(<img[^>]* src=([\"'])([^>]+?)(\\2)[^>]*>)");
+    private static final Pattern fImgRegExpQ = Pattern.compile("(?i)(<img\\s* src=([\"'])([^>]+?)(\\2)[^>]*>)");
 
     // unquoted case
     /**
      * Group 1 = Contents of <img> tag <br>
      * Group 2 = "fname"
      */
-    private static final Pattern fImgRegExpU = Pattern.compile("(?i)(<img[^>]* src=(?!['\"])([^ >]+)[^>]*?>)");
+    private static final Pattern fImgRegExpU = Pattern.compile("(?i)(<img\\s* src=(?!['\"])([^ >]+)[^>]*?>)");
 
     public static final List<Pattern> mRegexps =  Arrays.asList(fSoundRegexps, fImgRegExpQ, fImgRegExpU);
 
