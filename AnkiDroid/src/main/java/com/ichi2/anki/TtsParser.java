@@ -29,7 +29,7 @@ public final class TtsParser {
         parseTtsElements(elem, textsToRead);
         if (textsToRead.size() == 0) {
             // No <tts service="android"> elements found: return the text of the whole HTML fragment
-            textsToRead.add(new LocalisedText(elem.text().replace(Template.CLOZE_DELETION_REPLACEMENT, clozeReplacement)));
+            // textsToRead.add(new LocalisedText(elem.text().replace(Template.CLOZE_DELETION_REPLACEMENT, clozeReplacement)));
         }
 
         return textsToRead;
